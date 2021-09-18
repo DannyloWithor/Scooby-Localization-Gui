@@ -1,0 +1,13 @@
+#<KvLang>
+#</KvLang>
+
+FloatLayout:
+    MDTextField:
+        id: number_of_positions
+        hint_text: "Insira o número de posições fixas"
+        mode: "rectangle"
+        pos_hint: {"center_x": 0.7, "center_y": 0.8}
+        size_hint: .35,.08
+        on_text_validate: app.set_amount_of_parking_positions()
+
+ 

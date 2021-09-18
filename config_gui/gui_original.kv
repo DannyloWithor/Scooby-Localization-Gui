@@ -1,0 +1,94 @@
+#<KvLang>
+#</KvLang>
+
+FloatLayout:
+
+    MDToolbar:
+        title: "Scooby Localization Experiment"
+        pos_hint: {"center_x": 0.5, "center_y": 0.95}
+
+    MDLabel:
+        text: "O Scooby está estacionado?"
+        halign: "center"
+        theme_text_color: "Custom"
+        pos_hint: {"center_x": 0.3, "center_y": 0.47}
+
+    MDLabel:
+        id: number_of_spots_label
+        text: "Nenhuma vaga cadastrada!"
+        halign: "center"
+        theme_text_color: "Custom"
+        pos_hint: {"center_x": 0.275, "center_y": 0.75}
+
+    MDTextField:
+        id: add_parking_spot
+        hint_text: "Insira a vaga  [id x y th]"
+        mode: "rectangle"
+        pos_hint: {"center_x": 0.32, "center_y": 0.65}
+        size_hint: .5,.11
+        on_text_validate: app.set_parking_spot()
+
+    Button:
+        id: add_button
+        text: "Add"
+        theme_text_color: "Custom"
+        text_color: 0, 0, 1, 1
+        md_bg_color: 1, 0, 1, 1
+        background_color: (0, 1, 0, 1)
+        size_hint: .15,.1
+        pos_hint: {"center_x": 0.72, "center_y": 0.64}
+        on_press: app.on_add()
+
+    Button:
+        id: clear_button
+        text: "Clr"
+        theme_text_color: "Custom"
+        text_color: 0, 0, 1, 1
+        md_bg_color: 1, 0, 1, 1
+        background_color: (1, 0, 0, 1)
+        size_hint: .15,.1
+        pos_hint: {"center_x": 0.9, "center_y": 0.64}
+        on_press: app.on_clear()
+
+    Button:
+        id: parking_button
+        text: ""
+        theme_text_color: "Custom"
+        text_color: 0, 0, 1, 1
+        md_bg_color: 1, 0, 1, 1
+        size_hint: .2,.1
+        pos_hint: {"center_x": 0.74, "center_y": 0.47}
+        on_press: app.on_press()
+
+    MDTextField:
+        id: parking_spot
+        hint_text: "Se sim, em qual vaga?"
+        mode: "rectangle"
+        pos_hint: {"center_x": 0.47, "center_y": 0.35}
+        size_hint: .8,.11
+        on_text_validate: app.set_parking_spot()
+
+    MDLabel:
+        id: spot_label
+        text: "Nenhuma vaga selecionada!"
+        halign: "center"
+        theme_text_color: "Custom"
+        pos_hint: {"center_x": 0.275, "center_y": 0.21}
+   
+    Button:
+        id: pub_button
+        text: "Começar"
+        theme_text_color: "Custom"
+        text_color: 0, 0, 1, 1
+        md_bg_color: 1, 0, 1, 1
+        size_hint: .4,.1
+        pos_hint: {"center_x": 0.7, "center_y": 0.1}
+        on_press: app.on_press_pub()
+
+    Image:
+        source: '/samsung/scooby_ws/scooby_simulation/scooby/scooby_localization/config_gui/config_gui/icon.png'
+        size_hint: .45,.14
+        pos_hint: {"center_x": 0.93, "center_y": 0.94}
+
+    
+        
