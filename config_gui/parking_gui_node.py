@@ -32,8 +32,6 @@ class markerNode(Node):
         my_msg.pose.pose.position.x = float(current_spot[0])     # Spot pose in x
         my_msg.pose.pose.position.y = float(current_spot[1])     # Spot pose in y
         my_msg.pose.pose.position.z = float(current_spot[2])     # Spot pose in th
-        my_msg.twist.twist._linear.x = float(current_spot[3])    # Spot offset in x
-        my_msg.twist.twist._linear.y = float(current_spot[4])    # Spot offset in y
         my_msg.twist.twist._linear.z = float(parking_spot)       # Spot id
 
         self.publisher_.publish(my_msg)
@@ -42,13 +40,12 @@ class GuiApp(MDApp):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.screen = Builder.load_file('scooby_simulation/scooby/scooby_localization/config_gui/config_gui/gui_original.kv')
+        self.screen = Builder.load_file('scooby_simulation/scooby/scooby_localization/config_gui/config_gui/kv/gui_original.kv')
         self.parking_state = 0
         self.pub_state = 0
         self.parking_spot = 0
         self.pub_thread = threading.Thread(target=self.publish)
         self.thread_event = threading.Event()
-        self.offsets = [0, 0]
         self.spots = dict()
 
         self.pub_thread.start()
@@ -68,11 +65,11 @@ class GuiApp(MDApp):
         text = self.root.ids.add_parking_spot.text
         splittedText = text.split()
 
-        if(((len(splittedText) != 6))or(splittedText[0] == "0")):
+        if(((len(splittedText) != 4))or(splittedText[0] == "0")):
             self.root.ids.spot_label.text = "Invalido!"
             return
 
-        self.spots[splittedText[0]] = splittedText[1:6]
+        self.spots[splittedText[0]] = splittedText[1:4]
         self.root.ids.number_of_spots_label.text = str(len(self.spots)) + "  vagas cadastradas!"
 
     def on_press(self):
@@ -145,10 +142,6 @@ class GuiApp(MDApp):
             self.ros_node.publish_parking_spot(self.parking_spot, self.spots)
             time.sleep(1)
 
-    
-
-            
-
 def main(args=None):
     rclpy.init(args=args)
 
@@ -157,7 +150,7 @@ def main(args=None):
     app.set_node(ros_node)
     app.run()
 
-    rclpy.spin(ros_node)
+    ##rclpy.spin(ros_node)
 
     
     # Destroy the node explicitly

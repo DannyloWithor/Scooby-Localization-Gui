@@ -1,0 +1,186 @@
+#<KvLang>
+#</KvLang>
+
+FloatLayout:
+
+    MDToolbar:
+        title: "Scooby Localization Experiment"
+        pos_hint: {"center_x": 0.5, "center_y": 0.95}
+
+    Image:
+        source: '/samsung/scooby_ws/scooby_simulation/scooby/scooby_localization/config_gui/config_gui/images/icon.png'
+        size_hint: .45,.14
+        pos_hint: {"center_x": 0.93, "center_y": 0.94}
+    
+    # LINEAR CONTROLLER --------------------------------------------
+    
+    MDLabel:
+        text: "Linear Control:"
+        halign: "center"
+        theme_text_color: "Custom"
+        size_hint: .5, .5
+        pos_hint: {"center_x": 0.15, "center_y": 0.8}
+
+    MDLabel:
+        text: "Distância:"
+        halign: "center"
+        theme_text_color: "Custom"
+        size_hint: .5, .5
+        pos_hint: {"center_x": 0.15, "center_y": 0.7}
+
+    MDTextField:
+        id: distance
+        mode: "rectangle"
+        pos_hint: {"center_x": 0.35, "center_y": 0.7}
+        size_hint: .08,.1
+
+    MDLabel:
+        text: "Error:"
+        halign: "center"
+        theme_text_color: "Custom"
+        size_hint: .5, .5
+        pos_hint: {"center_x": 0.15, "center_y": 0.55}
+
+    MDLabel:
+        id: error_distance
+        text: "-"
+        pos_hint: {"center_x": 0.33, "center_y": 0.55}
+        size_hint: .15,.1
+
+    MDLabel:
+        text: "P:"
+        halign: "center"
+        theme_text_color: "Custom"
+        size_hint: .9, .6
+        pos_hint: {"center_x": 0.5, "center_y": 0.7}
+
+    MDTextField:
+        id: distance_p
+        mode: "rectangle"
+        pos_hint: {"center_x": 0.6, "center_y": 0.7}
+        size_hint: .05,.1
+
+    MDLabel:
+        text: "I:"
+        halign: "center"
+        theme_text_color: "Custom"
+        size_hint: .7, .6
+        pos_hint: {"center_x": 0.7, "center_y": 0.7}
+
+    MDTextField:
+        id: distance_i
+        mode: "rectangle"
+        pos_hint: {"center_x": 0.8, "center_y": 0.7}
+        size_hint: .05,.1
+
+    Button:
+        id: distance_save
+        text: "Salvar"
+        theme_text_color: "Custom"
+        text_color: 0, 0, 1, 1
+        md_bg_color: 1, 0, 1, 1
+        size_hint: .2,.1
+        pos_hint: {"center_x": 0.6, "center_y": 0.55}
+        on_press: app.on_distance_save()
+
+    Button:
+        id: distance_send
+        text: "Começar"
+        theme_text_color: "Custom"
+        text_color: 0, 0, 1, 1
+        md_bg_color: 1, 0, 1, 1
+        size_hint: .2,.1
+        pos_hint: {"center_x": 0.85, "center_y": 0.55}
+        on_press: app.on_distance_send()
+
+    # ANGULAR CONTROLLER --------------------------------------------
+    
+    MDLabel:
+        text: "Angular Control:"
+        halign: "center"
+        theme_text_color: "Custom"
+        size_hint: .5, .5
+        pos_hint: {"center_x": 0.17, "center_y": 0.45}
+
+    MDLabel:
+        text: "Ângulo:"
+        halign: "center"
+        theme_text_color: "Custom"
+        size_hint: .5, .5
+        pos_hint: {"center_x": 0.15, "center_y": 0.35}
+
+    MDTextField:
+        id: angular
+        mode: "rectangle"
+        pos_hint: {"center_x": 0.35, "center_y": 0.35}
+        size_hint: .08,.1
+
+    MDLabel:
+        text: "Error:"
+        halign: "center"
+        theme_text_color: "Custom"
+        size_hint: .5, .5
+        pos_hint: {"center_x": 0.15, "center_y": 0.2}
+
+    MDLabel:
+        id: error_angle
+        text: "-"
+        pos_hint: {"center_x": 0.33, "center_y": 0.2}
+        size_hint: .15,.1
+
+    MDLabel:
+        text: "P:"
+        halign: "center"
+        theme_text_color: "Custom"
+        size_hint: .7, .6
+        pos_hint: {"center_x": 0.5, "center_y": 0.35}
+
+    MDTextField:
+        id: angular_p
+        mode: "rectangle"
+        pos_hint: {"center_x": 0.6, "center_y": 0.35}
+        size_hint: .05,.1
+
+    MDLabel:
+        text: "I:"
+        halign: "center"
+        theme_text_color: "Custom"
+        size_hint: .7, .6
+        pos_hint: {"center_x": 0.7, "center_y": 0.35}
+
+    MDTextField:
+        id: angular_i
+        mode: "rectangle"
+        pos_hint: {"center_x": 0.8, "center_y": 0.35}
+        size_hint: .05,.1
+
+    Button:
+        id: angular_save
+        text: "Salvar"
+        theme_text_color: "Custom"
+        text_color: 0, 0, 1, 1
+        md_bg_color: 1, 0, 1, 1
+        size_hint: .2,.1
+        pos_hint: {"center_x": 0.6, "center_y": 0.2}
+        on_press: app.on_angular_save()
+
+    Button:
+        id: angular_send
+        text: "Começar"
+        theme_text_color: "Custom"
+        text_color: 0, 0, 1, 1
+        md_bg_color: 1, 0, 1, 1
+        size_hint: .2,.1
+        pos_hint: {"center_x": 0.85, "center_y": 0.2}
+        on_press: app.on_angular_send()
+
+    Button:
+        id: stop_send
+        text: "Parar"
+        theme_text_color: "Custom"
+        text_color: 0, 0, 1, 1
+        md_bg_color: 1, 0, 1, 1
+        size_hint: .2,.1
+        pos_hint: {"center_x": 0.85, "center_y": 0.07}
+        on_press: app.on_stop()
+

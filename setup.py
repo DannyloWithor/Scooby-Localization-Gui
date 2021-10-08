@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'gui = config_gui.gui_node:main'
+            'parking_gui = config_gui.parking_gui_node:main',
+            'control_gui = config_gui.control_gui_node:main'
         ],
     },
 )
