@@ -105,7 +105,7 @@ class GuiApp(MDApp):
 
         if((self.pub_state == 1)and(self.parking_spot != 0)):
             self.root.ids.pub_button.background_color = (1.0, 0.0, 0.0, 1.0)
-            self.root.ids.pub_button.text = "Parar"
+            self.root.ids.pub_button.text = "Parar" 
             self.start_publishing()
         
     def update_spot_label(self):

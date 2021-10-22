@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+import sys
+sys.argv = [sys.argv[0]]
+
 from kivy.config import Config
 Config.set('graphics', 'width', '450')
 Config.set('graphics', 'height', '450')
@@ -83,6 +86,7 @@ class GuiApp(MDApp):
         self.linear_msg.type = 0
         self.linear_msg.p = float(self.root.ids.distance_p.text)
         self.linear_msg.i = float(self.root.ids.distance_i.text) 
+        self.linear_msg.d = float(self.root.ids.distance_d.text) 
         self.linear_msg.setpoint = float(self.root.ids.distance.text)
 
     def on_distance_send(self):
@@ -92,6 +96,7 @@ class GuiApp(MDApp):
         self.angular_msg.type = 1
         self.angular_msg.p = float(self.root.ids.angular_p.text)
         self.angular_msg.i = float(self.root.ids.angular_i.text) 
+        self.angular_msg.d = float(self.root.ids.angular_d.text) 
         self.angular_msg.setpoint = float(self.root.ids.angular.text)
 
     def on_stop(self):
